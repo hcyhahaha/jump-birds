@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鸟</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="672" height="600" style="border: 1px solid red;"></canvas>
+
+    <script src="./src/land.js"></script>
+    <script src="./src/manager.js"></script>
+    <script src="./src/sky.js"></script>
+    <script src="./src/pipeUp.js"></script>
+    <script src="./src/pipeDown.js"></script>
+    <script src="./src/bird.js"></script>
+    <script src="./src/rank.js"></script>
+
+    <script>
+        window.onload = function () {
+            var m1 = new manager("canvas");
+            var flag = false;
+            window.addEventListener("keydown", function (e) {
+                if (e.keyCode == 32) { 
+                    flag = !flag;
+                    if (flag) {
+                        m1.play();
+                    } else {
+                        m1.stop();
+                    }
+                } else if (e.keyCode == 38) {
+                    m1.up();
+                }
+            })
+
+            // var m1 = new manager("canvas");
+            // m1.play();
+        }
+    </script>
+</body>
+
+</html>
